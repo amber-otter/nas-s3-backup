@@ -1,0 +1,12 @@
+[Unit]
+Description=rclone copy - NAS to S3 archive
+After=network-online.target remote-fs.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/backup-copy.sh
+User=root
+StandardOutput=journal
+StandardError=journal
+TimeoutStartSec=3600
